@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://medicine-app-six.vercel.app/api/users/login', { email, password });
+      const response = await axios.post('https://medicine-app-six.vercel.app/api/users/login', { email, password });
       localStorage.setItem('token', response.data.token);
       router.push('/search');
     } catch (error) {
