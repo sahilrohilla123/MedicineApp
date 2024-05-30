@@ -13,7 +13,12 @@ const Medicines = () => {
 
   useEffect(() => {
     const fetchMedicines = async () => {
-      const response = await axios.get('https://medicine-app-six.vercel.app/api/medicines/getList');
+      const response = await axios.get('https://medicine-app-six.vercel.app/api/medicines/getList', {
+  headers: {
+    'Access-Control-Allow-Origin': 'https://medicine-app-685y.vercel.app',
+  },
+});
+
       setMedicines(response.data);
     };
 
