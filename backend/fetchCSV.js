@@ -14,7 +14,7 @@ const fetchCSV = async () => {
   }
 
   try {
-    const response = await axios.get(CSV_URL, { responseType: 'stream',timeout: 70000,});
+    const response = await axios.get(CSV_URL, { responseType: 'stream',timeout: 70000});
     const stream = response.data.pipe(new PassThrough());
 
     return new Promise((resolve, reject) => {
