@@ -6,7 +6,7 @@ const handleSearch = async (query, setMedicines) => {
     console.log('Sending search request for:', query);
     try {
       const response = await axios.post(
-        'http://medicine-app-six.vercel.app/api/medicines/search',
+        'https://medicine-app-six.vercel.app/api/medicines/search',
         { name: query }
       );
       console.log('Received response:', response.data);
