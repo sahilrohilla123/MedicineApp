@@ -14,11 +14,12 @@ const fetchCSV = async () => {
   }
 
   try {
-    const response = await axios.get(CSV_URL, { responseType: 'stream',timeout: 70000});
+    const response = await axios.get(CSV_URL, { responseType: 'stream' });
     const stream = response.data.pipe(new PassThrough());
 
+    medicines = []; // Reset medicines array
+
     return new Promise((resolve, reject) => {
-      medicines = [];
       stream
         .pipe(csv())
         .on('data', (row) => {
@@ -30,11 +31,12 @@ const fetchCSV = async () => {
           resolve(medicines);
         })
         .on('error', (error) => {
+          console.error('Error parsing CSV data:', error);
           reject(error);
         });
     });
   } catch (error) {
-    console.error('Error fetching CSV file', error);
+    console.error('Error fetching CSV file:', error);
     throw error;
   }
 };
