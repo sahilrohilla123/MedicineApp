@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors(
   {
-    origin : ["https://medicine-app-685y.vercel.app","https://medicine-app-685y-ohycehgfu-sahils-projects-b07c5495.vercel.app"],
+    origin : ["https://medicine-app-685y.vercel.app","https://medicine-app-685y-62b3sfc33-sahils-projects-b07c5495.vercel.app"],
     methods : ["POST" , "GET"],
     credentials : true
   }
